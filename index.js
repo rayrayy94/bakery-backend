@@ -524,15 +524,15 @@ app.post('/contact', (req, res)=> {
     var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'rehanarshad2415@gmail.com',
-        pass: 'egvh iajk huzq vmxm'
+        user: `${process.env.NODEMAILER_USERNAME}`,
+        pass: `${process.env.NODEMAILER_KEY}`
     }
     });
 
     var mailOptions = {
     from: email,
     name: fullName,
-    to: 'rehanarshad2415@gmail.com',
+    to: `${process.env.NODEMAILER_USERNAME}`,
     subject: subject,
     text: message
     };
